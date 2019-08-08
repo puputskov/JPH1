@@ -19,8 +19,8 @@ void gen_random_key (uint8_t *key, size_t key_size)
 
 int main (int argc, const char **argv)
 {
-	#define A_SIZE 64
-	#define B_SIZE 64
+	#define A_SIZE 4
+	#define B_SIZE 4
 	uint8_t a[A_SIZE] = {0};	
 	uint8_t b[B_SIZE] = {0};
 
@@ -43,7 +43,7 @@ int main (int argc, const char **argv)
 	printf ("\n=\n");
 
 	int64_t key_size = 0;
-	uint8_t *key = jph1_add (a, A_SIZE, b, B_SIZE, &key_size);	
+	uint8_t *key = jph1_sub (a, A_SIZE, b, B_SIZE, &key_size);	
 	for (i = 0; i < key_size; ++ i)
 	{
 		printf ("%s%.2X", (i == 0 ? "0x" : ""), key [i]);
